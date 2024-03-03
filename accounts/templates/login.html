@@ -1,0 +1,96 @@
+{% extends 'accounts.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock title %}
+
+
+{% block nav %}
+<header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="{% url "" %}" class="logo">
+              <img src="{% static "logo/1.jpeg" %}" alt="" height="50" width="50">
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li class="scroll-to-section"><a href="{% url "" %}" class="active">Home</a></li>
+              <li class="scroll-to-section"><div class="border-first-button"><a href="#contact">SIGN UP</a></div></li> 
+            </ul>        
+            <a class='menu-trigger'>
+                <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+{% endblock nav %}
+
+
+
+
+
+{% block main %}
+
+
+
+<br>
+<br>
+<br>
+<br>
+
+<form class='form container pt-5' method="post" action="{% url 'login' %}">
+  {% csrf_token %}
+  <div class="text-center my-2 d-grid gap-2 col-5 pt-2 mx-auto custom-class">
+  <input type="text" class="form-control form-group-lg shadow-lg p-3 mb-2 bg-white rounded" id="" placeholder="Username"
+    name='username' required>
+  <input type="password" class="form-control form-group-lg shadow-lg p-3 mb-2 bg-white rounded" id="" placeholder="Password"
+    name='password' required>
+  <!-- <div class="text-center my-2 d-grid gap-2 col-5 pt-2 mx-auto"> -->
+    <button type="submit" class="btn btn-outline-dark" style="background-color: #E963B0;border-color: #E963B0;">SignIn</button>
+  <!-- </div> -->
+  {% for message in messages %}
+  <div class="container alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Error!</strong> {{message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    {% endfor %}
+  </div>
+  </div>
+
+
+
+ 
+
+
+
+
+
+  <a href="{% url 'google-login' %}" style="text-decoration: none;">
+    <div class="card container h-auto text-center d-grid gap-2 col-5  mx-auto custom-class mb-3 my-3">
+      <div class="card-body d-flex justify-content-center">
+        <img src="{% static 'site-images/google.svg' %}" class="" alt="shorturl.mefiz.com" height="30" width="30">
+        
+      </div>
+    </div>
+  </a>
+
+    <div class="card container h-auto text-center d-grid gap-2 col-5 pt-0  mx-auto custom-class">
+      <div class="card-body d-flex justify-content-center">
+        Create New Account
+        <a href="{% url 'signup' %}" class="mx-2">
+          Signup
+        </a>
+      </div>
+    </div>
+</form>
+
+
+
+
+
+{% endblock main %}

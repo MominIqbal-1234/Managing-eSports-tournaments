@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block nav %}
+<header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="{% url "" %}" class="logo">
+              <img src="{% static "logo/1.jpeg" %}" alt="" height="50" width="50">
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li class="scroll-to-section"><a href="{% url "" %}" class="active">Home</a></li>
+             
+              <li class="scroll-to-section"><div class="border-first-button"><a href="{% url "login" %}">Login</a></div></li> 
+            </ul>        
+            <a class='menu-trigger'>
+                <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+{% endblock nav %}
+
+
+
+{% block main %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<form class='form container pt-5' id='signup-form' method="post" action="{% url 'signup' %}">
+  {% csrf_token %}
+  <div class="text-center my-2 d-grid gap-2 col-5 pt-2 mx-auto custom-class">
+  <input type="text" class="form-control form-group-lg shadow-lg p-3 mb-2 bg-white rounded align-items-center" id="" placeholder="Full Name" name='full_name' required >
+  
+  <input type="email" class="form-control form-group-lg shadow-lg p-3 mb-2 bg-white rounded" id="" placeholder="Email" name='email' required>
+  <input type="password" class="form-control form-group-lg shadow-lg p-3 bg-white rounded" id="" placeholder="Password" name='password' required minlength="8">
+  <div class="text-center my-1 d-grid gap-2 col-6 pt-2 mx-auto">
+    <button type="submit" class="btn btn-outline-dark" style="background-color: #E963B0;border-color: #E963B0;">Signup</button>
+  <!-- </div> -->
+  </div>
+
+  
+
+  <a href="{% url 'google-login' %}" style="text-decoration: none;">
+  <div class="card container h-auto ">
+    <div class="card-body d-flex justify-content-center">
+        <img src="{% static 'site-images/google.svg' %}" class="" alt="shorturl.mefiz.com" height="30" width="30">
+    </div>
+  </div>
+</a>
+
+    <div class="card container h-auto ">
+      <div class="card-body d-flex justify-content-center">
+        I have Already Account
+        <a href="{% url 'login' %}" class="mx-2">
+          SignIn
+        </a>
+      </div>
+    </div>
+</form>
+
+
+
+{% endblock main %}
+
+
+
+{% block footer %}{% endblock footer %}

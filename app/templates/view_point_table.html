@@ -1,0 +1,86 @@
+{% extends 'accounts.html' %}
+{% load static %}
+
+{% block title %}View Point Table{% endblock title %}
+
+
+{% block nav %}
+<header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="{% url "" %}" class="logo">
+              <img src="{% static "logo/1.jpeg" %}" alt="" height="50" width="50">
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li class="scroll-to-section"><a href="{% url "" %}" class="active">Home</a></li> 
+            </ul>        
+            <a class='menu-trigger'>
+                <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+{% endblock nav %}
+
+
+
+
+
+{% block main %}
+
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+<div class="text-center container my-5">
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Team Name</th>
+        <th scope="col">Place Points</th>
+        <th scope="col">Kills</th>
+        <th scope="col">Total</th>
+       
+       
+        
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in result %}
+    
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{i.0}}</td>
+        <td>{{i.1}}</td>
+        <td>{{i.2}}</td>
+        <td>{{i.3}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  
+  <a href="{% url "viewpointtableimage" id match %}" class="btn btn-primary">Generate Point-Table-Image</a>
+
+</div>
+
+
+
+
+
+{% endblock main %}

@@ -1,0 +1,115 @@
+{% extends 'accounts.html' %}
+{% load static %}
+
+{% block title %}Create Tournament{% endblock title %}
+
+
+{% block nav %}
+
+<header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="main-nav">
+          <!-- ***** Logo Start ***** -->
+          <a href="{% url "" %}" class="logo">
+            <img src="{% static "logo/1.jpeg" %}" alt="" height="50" width="50">
+          </a>
+          <!-- ***** Logo End ***** -->
+          <!-- ***** Menu Start ***** -->
+          <ul class="nav">
+            <li class="scroll-to-section"><a href="{% url "" %}" class="active">Home</a></li>
+          </ul>        
+          <a class='menu-trigger'>
+              <span>Menu</span>
+          </a>
+          <!-- ***** Menu End ***** -->
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+{% endblock nav %}
+
+
+
+
+
+{% block main %}
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+  {% for message in messages %}
+  <br>
+  
+  <div class="container alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Error!</strong> {{message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    {% endfor %}
+  </div>
+
+  
+
+
+
+<form class='form container pt-5' method="post" action="{% url 'create_tornment' %}">
+  {% csrf_token %}
+
+
+  <div class="text-center my-2 d-grid gap-2 col-5 pt-2 mx-auto custom-class">
+
+
+    <h1 class="text-start">TOURNAMENT DETAILS</h1>
+    <h5 class="text-start">FILL OUT THE FORM</h5>
+
+  <input type="text" class="form-control form-group-lg  p-3 mb-2 bg-white rounded" id="" placeholder="Tournament Name"
+    name='tornament_name' required>
+  <input type="text" class="form-control form-group-lg  p-3 mb-2 bg-white rounded" id="" placeholder="Organizer Name"
+    name='organizer_name' required>
+
+  <h5 class="text-start">Battle Royale Type</h5>
+  <select class="form-control form-group-lg p-3 mb-2 bg-white rounded" name="battle_royale_type" aria-label="Default select example">
+    <option value="SQUAD">SQUAD</option>
+    <option value="DUO">DUO (Coming Soon)</option>
+    <option value="SOLO">SOLO (Coming Soon)</option>
+  </select>
+  <!-- <div class="text-center my-2 d-grid gap-2 col-5 pt-2 mx-auto"> -->
+    <h1 class="text-start">TEAMS INFO</h1>
+    <h5 class="text-start">Number Of Teams</h5>
+    <select class="form-control form-group-lg  p-3 mb-2 bg-white rounded" name="teams_info" aria-label="Default select example">
+      <option value="choose_range">Choose Range</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+      <option value="18">18</option>
+      <option value="19">19</option>
+      <option value="20">20 (Max)</option>
+    </select>
+
+    <h5 class="text-start">Minimum Players Per Team Choose your availability</h5>
+    <select class="form-control form-group-lg  p-3 mb-2 bg-white rounded" name="minimum_players_team" aria-label="Default select example">
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+    
+    </select>
+
+
+    <button type="submit" class="btn btn-outline-dark" style="background-color: #E963B0;border-color: #E963B0;">Submit</button>
+  <!-- </div> -->
+  
+  </div>
+  </div>
+</form>
+
+
+
+
+
+{% endblock main %}

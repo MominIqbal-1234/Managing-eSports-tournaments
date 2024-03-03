@@ -1,0 +1,64 @@
+{% extends 'accounts.html' %}
+{% load static %}
+
+{% block title %}View Match{% endblock title %}
+
+
+{% block nav %}
+<header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="{% url "" %}" class="logo">
+              <img src="{% static "logo/1.jpeg" %}" alt="" height="50" width="50">
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li class="scroll-to-section"><a href="{% url "" %}" class="active">Home</a></li> 
+            </ul>        
+            <a class='menu-trigger'>
+                <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+{% endblock nav %}
+
+
+
+
+
+{% block main %}
+
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+<div class="text-center container my-5" style="width: 400px;">
+  {% if data %}
+    {% for i in data %}
+    <a href="{% url "view_match_table" i.tourament_id i.match %}">
+    <div class="card my-3">
+        <div class="card-body">
+           Match # {{i.match}}
+        </div>
+      </div>
+    </a>
+      {% endfor %}
+
+      <a href="{% url "view_point_table" tourament_id match %}" class="btn btn-primary">Vist Point Table Page</a>
+    </div>
+    {% endif %}
+{% endblock main %}
