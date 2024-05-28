@@ -1,1 +1,1 @@
-Managing eSports tournaments made easy with Tournify
+Managing eSports tournaments made easy
