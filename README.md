@@ -1,1 +1,1 @@
-Tournify Clone
+Managing eSports tournaments made easy with Tournify
